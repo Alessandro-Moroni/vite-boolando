@@ -16,6 +16,7 @@ data() {
 <main>
   <div class="container">
     <h1>main</h1>
+   
   </div>
 </main>
  
@@ -25,5 +26,6 @@ data() {
 main{
   display: flex;
   justify-content: center;
+  height: 800px;
 }
 </style>
