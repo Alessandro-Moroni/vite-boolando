@@ -1,12 +1,13 @@
 <script>
+import {footerOb} from '../data/objects'
+
 export default {
 
-data() {
-  return{
-   
+  computed: {
+    mainSocial(){
+      return footerOb.social
+    },
   }
-},
-
 
 }
 </script>
@@ -32,11 +33,7 @@ data() {
       <p>
         <nav>
           <ul>
-            <li><a href=""></a><i class="fa-brands fa-square-twitter"></i></li>
-            <li><a href=""></a><i class="fa-brands fa-square-facebook"></i></li>
-            <li><a href=""></a><i class="fa-brands fa-square-instagram"></i></li>
-            <li><a href=""></a><i class="fa-brands fa-pinterest"></i></li>
-            <li><a href=""></a><i class="fa-brands fa-youtube"></i></li>
+            <li v-for="(item, index) in mainSocial" :key="`s-${index}`"><a href="item.href" v-html="`${item.text}`"></a></li>
           </ul>
         </nav>
       </p>
@@ -52,8 +49,8 @@ footer{
   padding: 30px 0;
   display: flex;
   justify-content: center;
-  color: white;
   .container{
+    color: white;
     display: flex;
     justify-content: space-between;
     ul{
@@ -63,8 +60,15 @@ footer{
         list-style: none;
         padding-right: 10px;
         &:hover{
-          cursor: pointer;
-          color: gray;
+            cursor: pointer;
+            color: gray;
+          }
+        a{
+          color: white;
+          &:hover{
+            cursor: pointer;
+            color: gray;
+          }
         }
       }
     }

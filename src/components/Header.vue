@@ -1,11 +1,16 @@
 <script>
+import {headerOb} from '../data/objects'
+
 export default {
 
-  data() {
-    return{
-     
-    }
-  },
+  computed: {
+    mainMenu(){
+      return headerOb.main
+    },
+    mainSocial(){
+      return headerOb.social
+    },
+  }
 
 
 }
@@ -18,9 +23,8 @@ export default {
 
     <nav>
       <ul>
-        <li><a href=""></a>Donna</li>
-        <li><a href=""></a>Uomo</li>
-        <li><a href=""></a>Bambini</li>
+        <li v-for="(item, index) in mainMenu" :key="`m-${index}`" ><a href="item.href">{{ item.text }}</a></li>
+        
       </ul>
     </nav>
 
@@ -30,9 +34,8 @@ export default {
 
     <nav>
       <ul>
-        <li><a href=""></a><i class="fa-regular fa-user"></i></li>
-        <li><a href=""></a><i class="fa-regular fa-heart"></i></li>
-        <li><a href=""></a><i class="fa-solid fa-bag-shopping"></i></li>
+        <li v-for="(item, index) in mainSocial" :key="`s-${index}`"><a href="item.href" v-html="`${item.text}`"></a></li>
+        
       </ul>
     </nav>
   </div>
@@ -43,7 +46,9 @@ export default {
 <style lang="scss" scoped>
 
 header{
-  height: 150px;
+  height: 120px;
+  width: 100%;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,12 +61,13 @@ header{
       li{
         padding: 10px;
         list-style: none;
-        color: white;
         &:hover{
           cursor: pointer;
-            text-decoration: underline;
-          }
+          text-decoration: underline;
+          color: white;
+        }
         a{
+          color: white;
           text-decoration: none;
          
         }

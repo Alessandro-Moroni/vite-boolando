@@ -1,12 +1,10 @@
 <script>
+import Card from './Card.vue';
 export default {
 
-data() {
-  return{
-   
-  }
-},
-
+components:{
+  Card,
+}
 
 }
 </script>
@@ -15,7 +13,13 @@ data() {
 
 <main>
   <div class="container">
-    <h1>main</h1>
+
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
    
   </div>
 </main>
@@ -24,8 +28,13 @@ data() {
 
 <style lang="scss" scoped>
 main{
+  padding-top: 120px;
   display: flex;
   justify-content: center;
-  height: 800px;
+  .container{
+    display: flex;
+    flex-wrap: wrap;
+    
+  }
 }
 </style>
