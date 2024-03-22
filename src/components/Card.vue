@@ -15,12 +15,18 @@
       <img class="second-photo" :src="`/imgcard/${finalProduct.backImage}`" alt="">
 
       <div class="heart">&#9829;</div>
-      <div class="sold-1">-50</div>
-      <div class="sold-2">sostenibilita</div>
+      
+      <div class="sold">
+
+        <span v-for="discount in finalProduct.badges" :key="discount" :class="discount.type" class="badge discount">{{ discount.value }}</span>
+
+        <span></span>
+      </div>
+     
     </div>
-    <p>levis</p>
-    <h3>relaxed</h3>
-    <p>14€</p>
+    <p>{{ finalProduct.brand }}</p>
+    <h3>{{ finalProduct.name }}</h3>
+    <p>{{ finalProduct.price }} €</p>
   </div>
   
 </template>
@@ -56,22 +62,22 @@
       background-color: white;
       font-size: 2rem;
     }
-    .sold-1{
+    .sold{
       position: absolute;
       bottom: 20px;
-      background-color: red;
-      padding: 7px 10px;
       color: white;
     }
-    .sold-2{
-      position: absolute;
-      bottom: 20px;
-      left: 50px;
-      background-color: green;
-      padding: 7px 10px;
-      color: white;
-    }
+
   }
+}
+.discount{
+  background-color: red;
+  padding: 7px 18px;
+
+}
+.tag{
+  background-color: green;
+  margin-right: 5px;
 }
 
 .photo:hover .first-photo{
