@@ -1,9 +1,9 @@
 <script>
-import db from '../data/db.json';
+
   export default {
-   components:{
-    db,
-   }
+    props:{
+      finalProduct: Object,
+    }
   }
 </script>
 
@@ -11,8 +11,8 @@ import db from '../data/db.json';
 
   <div class="card">
     <div class="photo">
-      <img class="first-photo" src="../data/1.webp" alt="">
-      <img class="second-photo" src="../data/1b.webp" alt="">
+      <img class="first-photo" :src="`/imgcard/${finalProduct.frontImage}`" alt="">
+      <img class="second-photo" :src="`/imgcard/${finalProduct.backImage}`" alt="">
 
       <div class="heart">&#9829;</div>
       <div class="sold-1">-50</div>
